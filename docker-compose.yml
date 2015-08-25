@@ -1,0 +1,15 @@
+mukito:
+    build: ./app
+    working_dir: /code
+    volumes:
+        - ./app:/code
+    ports:
+        - "3000:3000"
+    links:
+        - mongodb
+
+mongodb:
+    image: mongo:latest
+    volumes:
+        - ./mongo/data/db:/data/db
+        - ./mongo/backups:/backups
