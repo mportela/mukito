@@ -15,7 +15,8 @@ app.use(methodOverride());
 mongoose.connect("mongodb://mongodb/resources");
 
 var Resource = app.resource = restful.model('resource', mongoose.Schema({
-    data: String,
+    external_id: String,
+    json_data: String,
     time: {type : Date, default: Date.now},
   }))
   .methods(['get', 'post']);
